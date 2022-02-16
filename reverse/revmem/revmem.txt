@@ -1,0 +1,9 @@
+flag{this_was_an_easy_reverse}
+
+in order to get the flag is enough to use the following command:
+ltrace ./revmem asdasd
+
+it can be done also with gdb, but pay attention: there is PIE!
+Indeed, we need to put a breakpoint in the point of the execution in which the flag is saved in memory 
+    -> we have to use brva (in this case, brva 0x122d)
+We will see the flag saved in memory :D

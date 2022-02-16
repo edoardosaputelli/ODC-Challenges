@@ -1,0 +1,8 @@
+flag{this_was_a_bit_more_complex}
+
+in order to retrieve the flag, we have to change the binary in order to delete the exit functions, replacing them with NOP instructions.
+two are the functions that create problems: 
+    - a INIT function (executed before the main), that exits if it detects with ptrace that we are using gdb
+    - a function (executed inside the main), that exits if it detects we put breakpoints
+
+when I replaced the bytes of the exits (respectively e8 80 fd ff ff and e8 83 fe ff ff )with NOP instructions, the way to get the flag is the same of the challenge revmem.
