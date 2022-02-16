@@ -1,0 +1,12 @@
+The goal is to call the method "construct()" of the class Item (page data.php), in order to get what is inside the file flag.txt
+
+In order to do it, it is enough to upload, through the page upload_user.php, a serialized user that contains an item with $fid as "flag.txt"
+
+I sent this: 
+    O:4:"User":4:{s:4:"name";s:3:"edo";s:3:"fid";N;s:5:"items";a:1:{i:0;s:17:"../../../flag.txt";}s:2:"id";i:2;}
+
+I will exploit the unserialization vulnerability.
+This because page index.php prints out the Item, calling in this way the toString() method of the object, executing the instruction in the wanted field.
+To retrieve the flag it is enough to use "../../../flag.txt" as command.
+
+flag{unserialize_it_is_always_a_proble_you_should_use_safe_dataonly_format_like_json!}
